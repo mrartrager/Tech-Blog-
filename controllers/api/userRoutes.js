@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { User } = require('../../models/');
+const sequelize = require('../../config/connection')
+const { User, Post, Comment } = require('../../models/');
 
 
 // creating a new user
@@ -14,7 +15,12 @@ router.post('/register', async (req, res) =>{
     } catch (err) {
         res.status(404).json(err)
     }
-    
+    req.session.save(() =>{
+        req.session.user_id = userData.id;
+        req.session.username= userData.username;
+        req.session.logged_in = true;
+        res.status(200).json({message: 'New User Created!'})
+    })
 })
 
 
@@ -41,14 +47,41 @@ router.post('/login', async (res, res) =>{
         });
         return;
     }
-    // idk how to write a session for logged in user
-    //req.save
-
+    req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.username = userData.username;
+        req.session.logged_in = true;
+        res
+          .status(200)
+          .json({ user: userData, message: 'You are now logged in!' });
+      });
     } catch (err) {
         res.status(404).json(err)
     }
-
 })
+
+//LOG OUT
+router.post ('/logout', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(200).end();
+        });
+    } else {
+        res.status(404).end()
+    }
+})
+
+// GET USER BY /:id 
+router.get('/:id', async (res, req) =>{
+    const userData = await User.findOne({
+        where:{
+            id: req.params.id
+        }
+    })
+    res.status(200).json(userData)
+});
+
+
 
 // router.post(/) re.destroy
 router.post('/logout', (req, res)=> {
