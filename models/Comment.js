@@ -5,14 +5,45 @@ class Comment extends Model{ }
 
 Comment.init({
     id: {
-
+        type:DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
     },
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'comment',
-})
+    comment_body: {
+        type:DataTypes.TEXT,
+        allowNull: false,
+    },
+    date_created: {
+        type:DataTypes.DATE,
+        allowNull: false,
+        defaultValue:DataTypes.NOW,
+    },
+    user_id: {
+        type:DataTypes.INTERGER,
+        allowNull: false,
+        references:{
+            model: 'user',
+            key:'id',
+        }
+    },
+    post_id: {
+        type:DataTypes.INTERGER,
+        allowNull:false,
+        references:{
+            model:'post',
+            key:'id',
+        }
+    },
+},
+{
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'comment',
+    },
+);
 
 
 module.exports=Comment;
