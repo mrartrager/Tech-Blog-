@@ -2,6 +2,8 @@ const {Model, DataTypes} = require(sequelize);
 // const { Post } = require('.');
 const sequelize = require('../config/connection');
 
+class Post extends Model{}
+
 Post.init({
     id: {
         type: DataTypes.INTERGER,
@@ -10,11 +12,11 @@ Post.init({
         autoIncrement: true,
     },
     title: {
-        type: DataTypes.INTERGER,
+        type: DataTypes.STRING,
         allowNull: false,  
     },
     name: {
-        type: DataTypes.INTERGER,
+        type: DataTypes.STRING,
         allowNull: false,
     },
     
@@ -23,7 +25,7 @@ Post.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Post',
+    modelName: 'post',
 })
 
 module.exports=Post;
