@@ -38,3 +38,8 @@ sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
 
+//error: app.use() requires a middleware function
+//not sure what middleware im missing
+
+
+// module.exports = router;

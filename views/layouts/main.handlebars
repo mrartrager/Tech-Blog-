@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Not Facebook</title>
+</head>
+<body>
+    <header class="">
+        <h1 class="">The Slightly Cooler Facebook</h1>
+        <div class="">
+             <ul class="nav">
+            {{#if logged_in}}
+            <li class="">
+                <a class="" href="/">Home</a>
+            </li>
+            <li class="">
+                <a class="" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="">
+                <a class="" href="/logout">Logout</a>
+            </li>
+            {{else}}
+            <li class="">
+                <a class="" href="/">Home</a>
+            </li>
+            <li class="">
+                <a class="" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="">
+                <a class="" href="/signup">Signup</a>
+            </li>
+            <li class="">
+                <a class="" href="/login">Login</a>
+            </li>
+            {{/if}}
+        </ul>
+        </div>
+    </header>
+
+   <main class="">
+   {{{body}}}
+   </main>
+    
+
+    
+</body>
+</html>
