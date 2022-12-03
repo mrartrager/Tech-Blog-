@@ -32,6 +32,16 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  color: rgb(63, 63, 63);
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 55px;
+  font-weight: bold;
+  letter-spacing: -5px;
+  line-height: 1;
+  text-align: center;
+}
+
 span {
     color: rgb(227, 227, 227);
     font-family: "Helvetica Neue", sans-serif;
