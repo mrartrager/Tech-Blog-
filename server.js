@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+// const router = require('express').Router();
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
@@ -42,8 +43,9 @@ sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
 
+
 //error: app.use() requires a middleware function
 //not sure what middleware im missing
-
+// TypeError: Router.use() requires a middleware function but got a Object
 
 // module.exports = router;
