@@ -5,7 +5,9 @@ const withAuth = require('../utils/auth');
 
 //ALL POSTS
 router.get('/', async (req, res) =>{
-
+const allPosts = await Post.findAll({include: [{model: User}]});
+const posts = allPosts.map((post) => post.get({ plain: true }));
+res.render('all-posts', {posts, logged_in: req.session.logged_in})
 });
 
 //ONE POST
