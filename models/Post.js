@@ -23,7 +23,7 @@ Post.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Post'
+    modelName: 'Post',
 })
 
 module.exports=Post;
