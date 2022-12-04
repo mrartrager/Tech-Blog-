@@ -71,8 +71,24 @@ router.post ('/logout', (req, res) => {
     }
 })
 
+//GET ALL USER
+ 
+router.get('/', async (req, res) =>{
+    try{
+    const allUser = await User.findAll({
+    }) 
+    console.log(allUser)
+    return res.status(200).json(allUser) 
+    } catch(err){
+        console.log(err)
+        return res.status(400).json(err)
+    }
+    // return res.json(allUser)
+})
+
+
 // GET USER BY /:id 
-router.get('/:id', async (res, req) =>{
+router.get('/:id', async (req, res) =>{
     const userData = await User.findOne({
         where:{
             id: req.params.id
