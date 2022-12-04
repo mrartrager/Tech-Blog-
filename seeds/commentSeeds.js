@@ -10,4 +10,4 @@ const commentSeed = [
 
 const seedComments = () => Comment.bulkCreate(commentSeed);
 
-module.exports = seedComments;
+module.exports = seedComments; 
