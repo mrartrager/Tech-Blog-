@@ -7,7 +7,7 @@ class Post extends Model { }
 
 Post.init({
     id: {
-        type: DataTypes.INTERGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
@@ -21,7 +21,7 @@ Post.init({
         allowNull: false,
     },
     user_id: {
-        type: DataTypes.INTERGER,
+        type: DataTypes.INTEGER,
         referances: {
             model: 'user',
             key: 'id'

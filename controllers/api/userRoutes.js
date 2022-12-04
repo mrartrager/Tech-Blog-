@@ -25,7 +25,7 @@ router.post('/register', async (req, res) =>{
 
 
 //user login
-router.post('/login', async (res, res) =>{
+router.post('/login', async (req, res) =>{
     try{
         const userData = await User.findOne({
             where: {
@@ -84,13 +84,13 @@ router.get('/:id', async (res, req) =>{
 
 
 // router.post(/) re.destroy
-router.post('/logout', (req, res)=> {
-    if(){
+// router.post('/logout', (req, res)=> {
+//     if(){
 
-    } else {
-        res.status(404).
-    }
-})
+//     } else {
+//         res.status(404).
+//     }
+// })
 
 
 module.exports = router;

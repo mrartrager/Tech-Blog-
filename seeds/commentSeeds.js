@@ -2,9 +2,9 @@ const { Comment } = require('../models');
 
 const commentSeed = [
   {
-    content: 'testing content',
+    comment_body: 'testing content',
     user_id: 1,
-    post_id: 2,
+    post_id: 1,
   },
 ];
 
