@@ -9,10 +9,6 @@ router.get("/", async (req, res) => {
   res.render("all-posts", { posts, logged_in: req.session.logged_in });
 });
 
-//ONE POST //need help writing one POST .findOne by id
-// router.get("/post/:id", async (req, res) => {
-
-// });
 
 //SIGN UP
 router.get("/signup", async (req, res) => {
